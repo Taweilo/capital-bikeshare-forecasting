@@ -36,24 +36,41 @@ During the modeling process, various regression models were utilized to predict 
 5. KNN regressor: K-Nearest Neighbors (KNN) is a non-parametric machine learning algorithm that can be used in regression problems. KNN works by finding the k-nearest neighbors of a given data point in the feature space and predicting the output variable based on the average or median of the target values of those neighbors. The merit of KNN is to explain non-linear relationships rather than linear regression. This makes KNN regression a more flexible and adaptable model than linear regression alone.
 
 ## Evaluation
-We tune the model to maximize the model performance that is why hyperparameter tuning is applied in a linear regression model to reduce the variance error and avoid overfitting. Similarly for KNN models choosing the optimal K value is important that minimizes the MSE. This is why we split the data into three sets: training, validation, and test sets.
+
+We tune the model to maximize the model performance which is why hyperparameter tuning is applied in a linear regression model to reduce the variance error and avoid overfitting. Similarly for KNN models choosing the optimal K value is important that minimizes the MSE. This is why we split the data into three sets: training, validation, and test sets.
 
 We can use L1(Lasso) regularization when our model contains many useless variables. As this is the case where Lasso works best. Similarly, L2(Ridge regression) works best when most of the variables in the model are useful. Ridge regression will help reduce the variance in our model by shrinking the parameters by making them less sensitive but not removing them from the model. Elastic regression is a combination of the two methods above. In elastic regression we have two lambdas one for lasso and the other for ridge regression.
-
 
 If lambda 1 > 0 and lambda 2 = 0.  -  we get Lasso 
 If lambda 1 = 0 and lambda 2 > 0.  -  we get ridge 
 If lambda 1 > 0 and lambda 2 > 0.  -  we get a hybrid elastic net regression
+
 Elastic regression is best used when there is a correlation between the parameters/variables in our model. Lambda values can range from any value between zero to infinity. If the lambda value is equal to zero hence, the penalty is also then equal to zero as it nullifies the effect. As the value of lambda increases the slope gets smaller. We use cross-validation to decide which value of lambda is best to use that will result in lowest variance in our model. Hyperparameter tuning allows us to control the learning process. The hyperparameters that are selected then can help improve the learning of the model. Thus hyperparameter tuning is very advantageous as it can help increase the accuracy of a machine-learning model by running multiple trials.
+
 Cross-validation allows us to compare different machine-learning algorithms and get an idea of how well they will practice and work for our given dataset. Cross-validation is a resampling method or technique that uses different sets of data to test and train a model on different iterations. 
 
-The above four tables show the results of the various models for the two stations based on different scenarios: pick-up and drop-offs. 
-Overall, looking at the results altogether we can see that the linear model has the highest MSE amongst all the different models except for the 21st Street & Pennsylvania Ave NW dropoff where KNN model has the highest MSE. That is then followed by the KNN model which has the second highest MSE overall except for the 21st street & Pennsylvania Ave NW dropoff where the Linear model has the second highest MSE. In general the Lasso model is the best model altogether as it has the lowest MSE except for the 21st street & I street NW drop off where the Ridge model has the lowest MSE. 
+
+<p align="center">
+  <img src="https://github.com/Taweilo/Capital_Bikeshare_Forecasting/blob/main/image/1.%20Evaluation.jpg" alt="Bike Image" width="600">
+</p>
+
+The above four tables show the results of the various models for the two stations based on different scenarios: pick-up and drop-off. 
+Overall, looking at the results altogether we can see that the linear model has the highest MSE amongst all the different models except for the 21st Street & Pennsylvania Ave NW dropoff where KNN model has the highest MSE. That is then followed by the KNN model which has the second highest MSE overall except for the 21st street & Pennsylvania Ave NW dropoff where the Linear model has the second highest MSE. In general, the Lasso model is the best model altogether as it has the lowest MSE except for the 21st street & I street NW drop off where the Ridge model has the lowest MSE. 
 Because of the smallest MSE in the test dataset, we chose Lasso regression to develop the prediction model. In the cross-validation process, we received the best alpha to optimize the model. The hyperparameters tuning can refer to the above table: the best alpha for the Lasso CV model is shown. 
 From the Lasso regression output, we can see that many coefficients were shrinkage to 0. The feature selection encourages the prediction performance on the test dataset. 
 
+<p align="center">
+  <img src="https://github.com/Taweilo/Capital_Bikeshare_Forecasting/blob/main/image/2.%20Model%20coefficent.jpg" alt="Bike Image" width="600">
+</p>
+
+
 ## Discussion and Conclusion
 We applied the model to predict the second and the third test data point, annotated as scenario 1 and 2:
+
+<p align="center">
+  <img src="https://github.com/Taweilo/Capital_Bikeshare_Forecasting/blob/main/image/3.%20Simulation.jpg" alt="Bike Image" width="600">
+</p>
+
 1. Regardless of the scenario, it seems that 21st & I St NW is expected to have higher demand than 21st St & Pennsylvania Ave NW: Pickups and Drop-offs are expectedly higher. That is, 21st & I St NW is busier than 21st St & Pennsylvania Ave NW. 
 2. From the existing situation, 21st & I St NW can deploy a total 16 bikes or 16 docks if empty, while Pennsylvania Ave NW has 19 spots. Combining the capacity, 35 spots are flexible.
 3. Scenario one: we can see the daily pickup and drop offs for 21st & I St NW are 34 and 37 respectively. However, we only have 16 spots. To fulfill the demand, we need to expand the capacity to  71 spots (deployed 34 bikes and 37 docks). That could satisfy the daily needs but also have the idle capacity issue. We assumed the daily demand comes up with four periods: morning, noon, afternoon, and night. The demand distributes evenly. With that said, in each period, the pickup number should be 8.5 (34/4) and 9.25 (37/4) drop offs on 21st & I St NW; 6 pickups and 3.35 drop offs from 21st St & Pennsylvania Ave NW. Under this assumption, we recommend deploying 9 bikes at 21st & I St NW and 6 bikes at 21st St & Pennsylvania Ave NW; the rest docks are empty. If users cannot find a dock on 21st & I St NW, they can visit 21st St & Pennsylvania Ave NW station to drop off the bike.
