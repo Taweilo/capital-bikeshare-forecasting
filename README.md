@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 Badge [source](https://shields.io/)
- <img src="https://thehillishome.com/wp-content/uploads/CapBikeShare13.jpg" width="1100">
+ <img src="https://images.ctfassets.net/p6ae3zqfb1e3/6ylveQMxcXZPt56qTFRkBy/5a32ac003841b2ea92c17ef5c8ef1188/bike.png" width="800">
  
 ## Executive Summary
 We are assigned to run a detailed analysis of the Capital Bikeshare data that can help achieve operational excellence. The main issue highlighted is the lack of supply for both docks and bicycles in areas with high demand. We proceed forward with two stations to provide possible solutions to this problem and further explain it in the report. The objective is to predict and provide recommendations for the potential repositioning of bikes. 
