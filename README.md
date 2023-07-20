@@ -1,5 +1,13 @@
 # Capital Bikeshare Forecasting
+![Python version](https://img.shields.io/badge/Python%20version-3.10%2B-lightgrey)
+![GitHub last commit](https://img.shields.io/github/last-commit/Taweilo/Capital_Bikeshare_Forecasting)
+![GitHub repo size](https://img.shields.io/github/repo-size/Taweilo/Capital_Bikeshare_Forecastin)
+![Type of ML](https://img.shields.io/badge/Type%20of%20ML-Regression%20-red)
+![License](https://img.shields.io/badge/License-MIT-green)
 
+Badge [source](https://shields.io/)
+ <img src="https://thehillishome.com/wp-content/uploads/CapBikeShare13.jpg" width="1100">
+ 
 ## Executive Summary
 We are assigned to run a detailed analysis of the Capital Bikeshare data that can help achieve operational excellence. The main issue highlighted is the lack of supply for both docks and bicycles in areas with high demand. We proceed forward with two stations to provide possible solutions to this problem and further explain it in the report. The objective is to predict and provide recommendations for the potential repositioning of bikes. 
 
